@@ -1,5 +1,5 @@
 
-public class ForUser {
+public class ForUser { 
     public void forUser(){
         System.out.println("Привет, человек! Я предлагаю тебе собрать кубик Рубика\n");
         System.out.println("Вот как ты можешь управлять кубиком:");
