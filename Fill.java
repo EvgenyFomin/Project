@@ -24,23 +24,30 @@ public class Fill {
 /*---------Вывод-массива-на-экран----------*/
     public void output() {
         System.out.print("      ");
-        for (i = 0; i < 3; i++)
+        for (i = 0; i < 3; i++) {
             for (k = 0; k < 3; k++) {
                 System.out.print(a[i][k] + " ");
-                if ((k == 2) && (i != 2)) System.out.print("\n      ");
             }
-        System.out.println();
-        for (i = 0; i < 3; i++)
-            for (k = 0; k < 12; k++) {
+            if (i == 0) System.out.print("\n    ");
+            if (i == 1) System.out.print(b[0][8] + "\n  ");
+        }
+
+        System.out.print(b[0][7] + " " + b[1][8] + "\n");
+        for (i = 0; i < 3; i++) {
+            for (k = 3; k < 7; k++) {
                 System.out.print(b[i][k] + " ");
-                if (k == 11) System.out.println();
+                if ((i == 0) && (k == 6)) System.out.print(b[1][7] + " " + b[2][8]);
+                if ((i == 1) && (k == 6)) System.out.print(b[2][7]);
+                if (k == 6) System.out.println();
             }
-        System.out.print("      ");
+
+        }
+        /*System.out.print("      ");
         for (i = 0; i < 3; i++)
             for (k = 0; k < 3; k++) {
                 System.out.print(c[i][k] + " ");
                 if ((k == 2) && (i != 2)) System.out.print("\n      ");
-            }
+            }*/
     }
 /*----------Изменяющийся-вывод----------*/
     /*public void output2(char[][] a, char[][] b, char[][] c) {
@@ -453,7 +460,3 @@ public class Fill {
         b[0][1] = j[4];
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> b14152b07cd49d55f34468d7ab1cabff3d5e2b4c
