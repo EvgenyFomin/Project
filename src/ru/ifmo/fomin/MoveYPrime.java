@@ -3,7 +3,7 @@ package ru.ifmo.fomin;
 /**
  * Created by wolfram on 15.04.15.
  */
-public class yPrimeMove implements Execute {
+public class MoveYPrime implements Execute {
     @Override
     public void execute() {
         Fill fill = new Fill();
