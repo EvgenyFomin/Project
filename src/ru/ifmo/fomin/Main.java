@@ -48,11 +48,14 @@ public class Main {
         hashtable.put("b'", new MoveBwPrime());
         hashtable.put("Help", new ForUser());
         hashtable.put("Scramble", new Scramble());
+        hashtable.put("Undo", new Undo());
 
         Fill f = new Fill();
+        Undo undo = new Undo();
 
         f.fill();
         graphicsPanel.setHashtable(hashtable);
+
     }
 
 }

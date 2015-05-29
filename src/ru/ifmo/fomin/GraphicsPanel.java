@@ -48,17 +48,20 @@ public class GraphicsPanel extends JComponent {
     protected JButton buttonScramble = new JButton("Scramble");
     protected JButton buttonHelp = new JButton("Help");
     protected JButton buttonSolve = new JButton("Solve");
+    protected JButton buttonUndo = new JButton("Undo");
     protected static boolean check = false;
+    protected static boolean checkMoves = true;
     Fill fill = new Fill();
 
     private int R = 255;
     private int G = 255;
     private int B = 255;
+    protected static int move = 0;
     private RectsPanel panel = new RectsPanel();
 
     List<Polygon> polygonList = new ArrayList();
 
-    Hashtable<String, Execute> hashtable;
+    public static Hashtable<String, Execute> hashtable;
 
     public void setHashtable(Hashtable hs) {
 
@@ -153,6 +156,7 @@ public class GraphicsPanel extends JComponent {
         buttonScramble.addActionListener(new ButtonActionListener());
         buttonHelp.addActionListener(new ButtonActionListener());
         buttonSolve.addActionListener(new ButtonActionListener());
+        buttonUndo.addActionListener(new ButtonActionListener());
 
         jFrame.add(buttonU, new GridBagConstraints(1, 0, 1, 1, 1, 1, GridBagConstraints.NORTHEAST, GridBagConstraints.EAST,
                 new Insets(0, 350, 0, 0), 0, 0));
@@ -227,9 +231,11 @@ public class GraphicsPanel extends JComponent {
         jFrame.add(buttonzPrime, new GridBagConstraints(4, 8, 1, 1, 1, 1, GridBagConstraints.NORTHEAST, GridBagConstraints.EAST,
                 new Insets(0, 0, 0, 0), 1, 0));
         jFrame.add(buttonScramble, new GridBagConstraints(1, 8, 1, 1, 1, 1, GridBagConstraints.SOUTH, GridBagConstraints.SOUTH,
-                new Insets(0, -210, 0, 0), 0, 0));
+                new Insets(0, -300, 0, 0), 0, 0));
         jFrame.add(buttonHelp, new GridBagConstraints(1, 8, 1, 1, 1, 1, GridBagConstraints.SOUTH, GridBagConstraints.EAST,
-                new Insets(0, 0, 0, 0), 35, 0));
+                new Insets(0, -90, 0, 0), 35, 0));
+        jFrame.add(buttonUndo, new GridBagConstraints(1, 8, 1, 1, 1, 1, GridBagConstraints.SOUTH, GridBagConstraints.EAST,
+                new Insets(0, 126, 0, 0), 35, 0));
         jFrame.add(panel, new GridBagConstraints(1, 1, 5, 5, 7, 7, GridBagConstraints.NORTH, GridBagConstraints.BOTH,
                 new Insets(0, 30, 0, 300), 0, 0));
 
@@ -271,17 +277,36 @@ public class GraphicsPanel extends JComponent {
     }
 
 
+
+
     private class ButtonActionListener implements ActionListener {
+
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            int k = 0;
+
+            int numberOfPolygon = 0;
 
             Fill fill = new Fill();
+            Undo undo = new Undo();
             CheckEnd checkEnd = new CheckEnd();
 
             hashtable.get(((JButton) e.getSource()).getText()).execute();
+            if (((JButton) e.getSource()).getText() != "Undo" && ((JButton) e.getSource()).getText() != "Help" && ((JButton) e.getSource()).getText() != "Scramble") {
+                if (!checkMoves)
+                    for (int i = 0; i < 9; i++) undo.moves[i] = undo.moves[i+1];
+
+                undo.moves[move] = ((JButton) e.getSource()).getText();
+                move++;
+                if (move == 10) {
+
+                    checkMoves = false;
+                    move--;
+
+                }
+
+            }
 
             Color color = new Color(R, G, B);
 
@@ -314,9 +339,9 @@ public class GraphicsPanel extends JComponent {
 
                     }
 
-                    polygonList.set(k, polygonList.get(k)).color = color;
-                    polygonList.add(polygonList.get(k));
-                    k++;
+                    polygonList.set(numberOfPolygon, polygonList.get(numberOfPolygon)).color = color;
+                    polygonList.add(polygonList.get(numberOfPolygon));
+                    numberOfPolygon++;
 
                 }
 
@@ -347,9 +372,9 @@ public class GraphicsPanel extends JComponent {
 
                     }
 
-                    polygonList.set(k, polygonList.get(k)).color = color;
-                    polygonList.add(polygonList.get(k));
-                    k++;
+                    polygonList.set(numberOfPolygon, polygonList.get(numberOfPolygon)).color = color;
+                    polygonList.add(polygonList.get(numberOfPolygon));
+                    numberOfPolygon++;
 
                 }
 
@@ -379,9 +404,9 @@ public class GraphicsPanel extends JComponent {
 
                     }
 
-                    polygonList.set(k, polygonList.get(k)).color = color;
-                    polygonList.add(polygonList.get(k));
-                    k++;
+                    polygonList.set(numberOfPolygon, polygonList.get(numberOfPolygon)).color = color;
+                    polygonList.add(polygonList.get(numberOfPolygon));
+                    numberOfPolygon++;
 
                 }
 

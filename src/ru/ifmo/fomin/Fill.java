@@ -33,6 +33,13 @@ public class Fill {
 
 /*--------------Инструкции--------------*/
 
+    public enum Moves {
+
+        R, U, F, B, L, D, S, M, E;
+
+    }
+
+
 
     protected void moveR() {
 
