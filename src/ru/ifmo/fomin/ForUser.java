@@ -40,4 +40,6 @@ public class ForUser implements Execute {
         jFrame.setVisible(true);
 
     }
+
+    public void undo() {    }
 }

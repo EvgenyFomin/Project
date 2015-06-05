@@ -70,4 +70,8 @@ public class CheckEnd implements Execute {
 
     }
 
+    @Override
+    public void undo() {
+
+    }
 }

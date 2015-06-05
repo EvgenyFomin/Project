@@ -8,9 +8,16 @@ public class MoveDw implements Execute {
     @Override
     public void execute() {
 
-        Fill fill = new Fill();
-        fill.moveD();
-        fill.moveE();
+        final Instructions instructions = new Instructions();
+        instructions.moveD();
+        instructions.moveE();
+
+    }
+
+    public void undo() {
+
+        final MoveDwPrime moveDwPrime = new MoveDwPrime();
+        moveDwPrime.execute();
 
     }
 

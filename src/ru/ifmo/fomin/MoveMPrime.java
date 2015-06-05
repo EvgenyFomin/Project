@@ -7,10 +7,18 @@ public class MoveMPrime implements Execute {
     @Override
     public void execute() {
 
-        Fill fill = new Fill();
-        fill.moveM();
-        fill.moveM();
-        fill.moveM();
+        final Instructions instructions = new Instructions();
+        instructions.moveM();
+        instructions.moveM();
+        instructions.moveM();
+
+    }
+
+    @Override
+    public void undo() {
+
+        final MoveM moveM = new MoveM();
+        moveM.execute();
 
     }
 }

@@ -279,6 +279,7 @@ public class GraphicsPanel extends JComponent {
 
 
 
+
     private class ButtonActionListener implements ActionListener {
 
 
@@ -291,6 +292,7 @@ public class GraphicsPanel extends JComponent {
             Fill fill = new Fill();
             Undo undo = new Undo();
             CheckEnd checkEnd = new CheckEnd();
+            //fill.move();
 
             hashtable.get(((JButton) e.getSource()).getText()).execute();
             if (((JButton) e.getSource()).getText() != "Undo" && ((JButton) e.getSource()).getText() != "Help" && ((JButton) e.getSource()).getText() != "Scramble") {

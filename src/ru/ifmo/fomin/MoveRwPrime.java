@@ -8,12 +8,19 @@ public class MoveRwPrime implements Execute {
     @Override
     public void execute() {
 
-        Fill fill = new Fill();
-        fill.moveR();
-        fill.moveR();
-        fill.moveR();
-        fill.moveM();
+        final Instructions instructions = new Instructions();
+        instructions.moveR();
+        instructions.moveR();
+        instructions.moveR();
+        instructions.moveM();
 
     }
 
+    @Override
+    public void undo() {
+
+        final MoveRw moveRw = new MoveRw();
+        moveRw.execute();
+
+    }
 }

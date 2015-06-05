@@ -8,11 +8,18 @@ public class MoveBwPrime implements Execute {
     @Override
     public void execute() {
 
-        Fill fill = new Fill();
-        fill.moveB();
-        fill.moveB();
-        fill.moveB();
-        fill.moveS();
+        final Instructions instructions = new Instructions();
+        instructions.moveB();
+        instructions.moveB();
+        instructions.moveB();
+        instructions.moveS();
+
+    }
+
+    public void undo() {
+
+        final MoveBw moveBw = new MoveBw();
+        moveBw.execute();
 
     }
 

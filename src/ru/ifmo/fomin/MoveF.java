@@ -7,8 +7,15 @@ public class MoveF implements Execute {
     @Override
     public void execute() {
 
-        final Fill fill = new Fill();
-        fill.moveF();
+        final Instructions instructions = new Instructions();
+        instructions.moveF();
+
+    }
+
+    public void undo() {
+
+        final MoveFPrime fPrime = new MoveFPrime();
+        fPrime.execute();
 
     }
 }

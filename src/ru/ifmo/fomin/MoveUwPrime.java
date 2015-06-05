@@ -8,12 +8,19 @@ public class MoveUwPrime implements Execute {
     @Override
     public void execute() {
 
-        Fill fill = new Fill();
-        fill.moveU();
-        fill.moveU();
-        fill.moveU();
-        fill.moveE();
+        final Instructions instructions = new Instructions();
+        instructions.moveU();
+        instructions.moveU();
+        instructions.moveU();
+        instructions.moveE();
 
     }
 
+    @Override
+    public void undo() {
+
+        final MoveUw moveUw = new MoveUw();
+        moveUw.execute();
+
+    }
 }

@@ -6,7 +6,7 @@ package ru.ifmo.fomin;
 public class Scramble implements Execute {
     @Override
     public void execute() {
-        Fill fill = new Fill();
+        final Instructions instructions = new Instructions();
         GraphicsPanel.check = true;
         int[] a = new int[20];
         for (int i = 0; i < 19; i++) {
@@ -16,26 +16,31 @@ public class Scramble implements Execute {
             switch (a[i]) {
 
                 case 0:
-                    fill.moveR();
+                    instructions.moveR();
                     break;
                 case 1:
-                    fill.moveD();
+                    instructions.moveD();
                     break;
                 case 2:
-                    fill.moveL();
+                    instructions.moveL();
                     break;
                 case 3:
-                    fill.moveB();
+                    instructions.moveB();
                     break;
                 case 4:
-                    fill.moveF();
+                    instructions.moveF();
                     break;
                 case 5:
-                    fill.moveU();
+                    instructions.moveU();
                     break;
 
             }
 
         }
+    }
+
+    @Override
+    public void undo() {
+
     }
 }

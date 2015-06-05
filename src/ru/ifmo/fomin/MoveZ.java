@@ -6,12 +6,20 @@ package ru.ifmo.fomin;
 public class MoveZ implements Execute {
     @Override
     public void execute() {
-        Fill fill = new Fill();
-        fill.moveF();
-        fill.moveS();
-        fill.moveB();
-        fill.moveB();
-        fill.moveB();
+        final Instructions instructions = new Instructions();
+        instructions.moveF();
+        instructions.moveS();
+        instructions.moveB();
+        instructions.moveB();
+        instructions.moveB();
+
+    }
+
+    @Override
+    public void undo() {
+
+        final MoveZPrime zPrime = new MoveZPrime();
+        zPrime.execute();
 
     }
 }

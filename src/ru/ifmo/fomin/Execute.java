@@ -6,5 +6,6 @@ package ru.ifmo.fomin;
 public interface Execute {
 
     public void execute();
+    public void undo();
 
 }

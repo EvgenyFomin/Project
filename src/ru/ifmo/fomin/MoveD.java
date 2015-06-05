@@ -6,7 +6,14 @@ package ru.ifmo.fomin;
 public class MoveD implements Execute {
     @Override
     public void execute() {
-        final Fill fill = new Fill();
-        fill.moveD();
+        final Instructions instructions = new Instructions();
+        instructions.moveD();
+    }
+
+    public void undo() {
+
+        final MoveDPrime dPrime = new MoveDPrime();
+        dPrime.execute();
+
     }
 }

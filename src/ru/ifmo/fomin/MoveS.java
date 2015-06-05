@@ -7,8 +7,16 @@ public class MoveS implements Execute {
     @Override
     public void execute() {
 
-        final Fill fill = new Fill();
-        fill.moveS();
+        final Instructions instructions = new Instructions();
+        instructions.moveS();
+
+    }
+
+    @Override
+    public void undo() {
+
+        final MoveSPrime sPrime = new MoveSPrime();
+        sPrime.execute();
 
     }
 }

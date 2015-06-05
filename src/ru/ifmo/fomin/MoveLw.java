@@ -8,9 +8,16 @@ public class MoveLw implements Execute {
     @Override
     public void execute() {
 
-        Fill fill = new Fill();
-        fill.moveL();
-        fill.moveM();
+        final Instructions instructions = new Instructions();
+        instructions.moveL();
+        instructions.moveM();
+
+    }
+
+    public void undo() {
+
+        final MoveLwPrime lwPrime = new MoveLwPrime();
+        lwPrime.execute();
 
     }
 

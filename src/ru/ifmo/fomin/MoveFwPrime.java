@@ -8,13 +8,20 @@ public class MoveFwPrime implements Execute {
     @Override
     public void execute() {
 
-        Fill fill = new Fill();
-        fill.moveF();
-        fill.moveF();
-        fill.moveF();
-        fill.moveS();
-        fill.moveS();
-        fill.moveS();
+        final Instructions instructions = new Instructions();
+        instructions.moveF();
+        instructions.moveF();
+        instructions.moveF();
+        instructions.moveS();
+        instructions.moveS();
+        instructions.moveS();
+
+    }
+
+    public void undo() {
+
+        final MoveFw moveFw = new MoveFw();
+        moveFw.execute();
 
     }
 
